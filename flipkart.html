@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProfitERA</title>
+    <title>Excel Data Processor</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -53,16 +53,20 @@
 
         .dashboard {
             display: flex;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
             min-height: 500px;
+             position: relative;
         }
 
-        .sidebar {
-            flex: 1;
-            min-width: 250px;
+         .sidebar {
+            flex: 0 0 250px;
             background: #2c3e50;
             color: white;
             padding: 25px;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
         }
 
         .sidebar h2 {
@@ -96,10 +100,12 @@
         }
 
         .main-content {
-            flex: 3;
+            flex: 1;
             min-width: 300px;
             padding: 25px;
             background: #f8f9fa;
+            overflow-y: auto;
+            max-height: calc(115vh - 125px);
         }
 
         .upload-section {
@@ -1301,5 +1307,4 @@
         });
     </script>
 </body>
-
 </html>
