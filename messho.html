@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProfitERA- Meesho Dashboard</title>
+    <title>Excel Data Processor</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -107,6 +107,7 @@
             background: #f8f9fa;
             overflow-y: auto;
             max-height: calc(115vh - 125px);
+            position: relative;
         }
 
 
@@ -220,6 +221,9 @@
             padding: 25px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             display: none;
+            position: relative;
+            max-height: 80vh;
+            overflow-y: auto;
         }
 
         .report-section h2 {
@@ -251,18 +255,181 @@
             padding: 20px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             text-align: center;
+            border-top: 4px solid;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
         }
 
         .stat-card h3 {
-            color: #6c757d;
             margin-bottom: 15px;
             font-size: 1rem;
+            color: white;
+            padding: 8px;
+            border-radius: 6px;
+            font-weight: 600;
         }
 
         .stat-card .value {
             font-size: 1.8rem;
             font-weight: bold;
-            color: #2c3e50;
+            margin: 10px 0;
+        }
+
+        .stat-card .percentage {
+            font-size: 0.9rem;
+            margin-top: 5px;
+            font-weight: 500;
+        }
+
+        /* Individual stat card colors */
+        .stat-card:nth-child(1) {
+            border-top-color: #6a11cb;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+        }
+        .stat-card:nth-child(1) h3 {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-card:nth-child(2) {
+            border-top-color: #28a745;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+        }
+        .stat-card:nth-child(2) h3 {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-card:nth-child(3) {
+            border-top-color: #dc3545;
+            background: linear-gradient(135deg, #dc3545 0%, #e83e8c 100%);
+            color: white;
+        }
+        .stat-card:nth-child(3) h3 {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-card:nth-child(4) {
+            border-top-color: #ffc107;
+            background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
+            color: white;
+        }
+        .stat-card:nth-child(4) h3 {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Second row */
+        .report-stats:nth-of-type(2) .stat-card:nth-child(1) {
+            border-top-color: #6f42c1;
+            background: linear-gradient(135deg, #6f42c1 0%, #e83e8c 100%);
+            color: white;
+        }
+        .report-stats:nth-of-type(2) .stat-card:nth-child(1) h3 {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .report-stats:nth-of-type(2) .stat-card:nth-child(2) {
+            border-top-color: #20c997;
+            background: linear-gradient(135deg, #20c997 0%, #17a2b8 100%);
+            color: white;
+        }
+        .report-stats:nth-of-type(2) .stat-card:nth-child(2) h3 {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .report-stats:nth-of-type(2) .stat-card:nth-child(3) {
+            border-top-color: #fd7e14;
+            background: linear-gradient(135deg, #fd7e14 0%, #e74a3b 100%);
+            color: white;
+        }
+        .report-stats:nth-of-type(2) .stat-card:nth-child(3) h3 {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .report-stats:nth-of-type(2) .stat-card:nth-child(4) {
+            border-top-color: #17a2b8;
+            background: linear-gradient(135deg, #17a2b8 0%, #6f42c1 100%);
+            color: white;
+        }
+        .report-stats:nth-of-type(2) .stat-card:nth-child(4) h3 {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Third row */
+        .report-stats:nth-of-type(3) .stat-card:nth-child(1) {
+            border-top-color: #e74a3b;
+            background: linear-gradient(135deg, #e74a3b 0%, #fd7e14 100%);
+            color: white;
+        }
+        .report-stats:nth-of-type(3) .stat-card:nth-child(1) h3 {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .report-stats:nth-of-type(3) .stat-card:nth-child(2) {
+            border-top-color: #858796;
+            background: linear-gradient(135deg, #858796 0%, #6c757d 100%);
+            color: white;
+        }
+        .report-stats:nth-of-type(3) .stat-card:nth-child(2) h3 {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .report-stats:nth-of-type(3) .stat-card:nth-child(3) {
+            border-top-color: #36b9cc;
+            background: linear-gradient(135deg, #36b9cc 0%, #36b9cc 100%);
+            color: white;
+        }
+        .report-stats:nth-of-type(3) .stat-card:nth-child(3) h3 {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .report-stats:nth-of-type(3) .stat-card:nth-child(4) {
+            border-top-color: #f6c23e;
+            background: linear-gradient(135deg, #f6c23e 0%, #e74a3b 100%);
+            color: white;
+        }
+        .report-stats:nth-of-type(3) .stat-card:nth-child(4) h3 {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Fourth row */
+        .report-stats:nth-of-type(4) .stat-card:nth-child(1) {
+            border-top-color: #4e73df;
+            background: linear-gradient(135deg, #4e73df 0%, #224abe 100%);
+            color: white;
+        }
+        .report-stats:nth-of-type(4) .stat-card:nth-child(1) h3 {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .report-stats:nth-of-type(4) .stat-card:nth-child(2) {
+            border-top-color: #36b9cc;
+            background: linear-gradient(135deg, #36b9cc 0%, #2c9faf 100%);
+            color: white;
+        }
+        .report-stats:nth-of-type(4) .stat-card:nth-child(2) h3 {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .report-stats:nth-of-type(4) .stat-card:nth-child(3) {
+            border-top-color: #1cc88a;
+            background: linear-gradient(135deg, #1cc88a 0%, #17a673 100%);
+            color: white;
+        }
+        .report-stats:nth-of-type(4) .stat-card:nth-child(3) h3 {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .report-stats:nth-of-type(4) .stat-card:nth-child(4) {
+            border-top-color: #e74a3b;
+            background: linear-gradient(135deg, #e74a3b 0%, #be2617 100%);
+            color: white;
+        }
+        .report-stats:nth-of-type(4) .stat-card:nth-child(4) h3 {
+            background: rgba(255, 255, 255, 0.2);
         }
 
         .download-btn {
@@ -307,6 +474,37 @@
             background-color: #f5f5f5;
         }
 
+        /* Status colors for data table */
+        .status-delivered {
+            background-color: #d4edda !important;
+            color: #155724;
+        }
+
+        .status-returned {
+            background-color: #f8d7da !important;
+            color: #721c24;
+        }
+
+        .status-rto {
+            background-color: #fff3cd !important;
+            color: #856404;
+        }
+
+        .status-cancelled {
+            background-color: #e2e3e5 !important;
+            color: #383d41;
+        }
+
+        .status-exchange {
+            background-color: #cce7ff !important;
+            color: #004085;
+        }
+
+        .status-shipped {
+            background-color: #d1ecf1 !important;
+            color: #0c5460;
+        }
+
         .instructions {
             background-color: #f8f9fa;
             border-left: 4px solid #6a11cb;
@@ -330,7 +528,7 @@
         }
 
         .positive-revenue {
-            color: #28a745 !important;
+            color: #006e1a !important;
         }
 
         .negative-revenue {
@@ -344,6 +542,9 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             margin-top: 30px;
             display: none;
+            position: relative;
+            max-height: 80vh;
+            overflow-y: auto;
         }
 
         .profit-loss-section h2 {
@@ -422,6 +623,111 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
         }
 
+        /* CHANGED: Floating buttons for report section - positioned on LEFT */
+        .floating-report-buttons {
+            position: fixed;
+            bottom: 30px;
+            left: 30px; /* Changed from right to left */
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+
+        .floating-report-buttons.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .floating-download-btn {
+            background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 15px 25px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            white-space: nowrap;
+        }
+
+        .floating-download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .floating-back-to-top-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 15px 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            white-space: nowrap;
+        }
+
+        .floating-back-to-top-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+
+        /* Regular buttons (hidden when floating buttons are shown) */
+        .back-to-top-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .back-to-top-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            display: none !important;
+            border-radius: 8px;
+            padding: 12px 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .back-to-top-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         @media (max-width: 768px) {
             .dashboard {
                 flex-direction: column;
@@ -445,6 +751,23 @@
                 width: 50px;
                 height: 50px;
                 font-size: 0.8rem;
+            }
+
+            /* CHANGED: Mobile positioning for floating report buttons */
+            .floating-report-buttons {
+                bottom: 20px;
+                left: 20px; /* Changed from right to left */
+            }
+
+            .floating-download-btn,
+            .floating-back-to-top-btn {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+
+            .back-to-top-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -507,22 +830,27 @@
                 
                 <div class="report-section" id="reportSection">
                     <h2>Data Analysis Results</h2>
+                    
                     <div class="report-stats">
                         <div class="stat-card">
                             <h3>TOTAL ORDERS</h3>
                             <div class="value" id="totalOrders">0</div>
+                            <div class="percentage" id="totalOrdersPercent">100%</div>
                         </div>
                         <div class="stat-card">
                             <h3>DELIVERED ORDERS</h3>
                             <div class="value" id="deliveredOrders">0</div>
+                            <div class="percentage" id="deliveredOrdersPercent">0%</div>
                         </div>
                         <div class="stat-card">
                             <h3>CUSTOMER RETURNED</h3>
                             <div class="value" id="returnedOrders">0</div>
+                            <div class="percentage" id="returnedOrdersPercent">0%</div>
                         </div>
                         <div class="stat-card">
                             <h3>COURIER RETURNED</h3>
                             <div class="value" id="rtoOrders">0</div>
+                            <div class="percentage" id="rtoOrdersPercent">0%</div>
                         </div>
                     </div>
                     
@@ -530,18 +858,22 @@
                         <div class="stat-card">
                             <h3>CANCELLED ORDERS</h3>
                             <div class="value" id="cancelledOrders">0</div>
+                            <div class="percentage" id="cancelledOrdersPercent">0%</div>
                         </div>
                         <div class="stat-card">
                             <h3>EXCHANGE ORDERS</h3>
                             <div class="value" id="exchangeOrders">0</div>
+                            <div class="percentage" id="exchangeOrdersPercent">0%</div>
                         </div>
                         <div class="stat-card">
                             <h3>SHIPPED ORDERS</h3>
                             <div class="value" id="shippedOrders">0</div>
+                            <div class="percentage" id="shippedOrdersPercent">0%</div>
                         </div>
                         <div class="stat-card">
-                            <h3>OTHER STATUS</h3>
-                            <div class="value" id="otherOrders">0</div>
+                            <h3>SUCCESS RATE</h3>
+                            <div class="value" id="successRate">0%</div>
+                            <div class="percentage">of total orders</div>
                         </div>
                     </div>
                     
@@ -549,18 +881,22 @@
                         <div class="stat-card">
                             <h3>TOTAL SALE AMOUNT</h3>
                             <div class="value" id="totalSales">₹0</div>
+                            <div class="percentage" id="totalSalesPercent">100%</div>
                         </div>
                         <div class="stat-card">
                             <h3>TOTAL RETURN AMOUNT</h3>
                             <div class="value" id="totalSaleReturns">₹0</div>
+                            <div class="percentage" id="totalSaleReturnsPercent">0%</div>
                         </div>
                         <div class="stat-card">
                             <h3>NET SALE AMOUNT</h3>
                             <div class="value" id="netSales">₹0</div>
+                            <div class="percentage" id="netSalesPercent">0%</div>
                         </div>
                         <div class="stat-card">
                             <h3>TOTAL ADS COST</h3>
                             <div class="value" id="totalAdsCost">₹0</div>
+                            <div class="percentage" id="totalAdsCostPercent">0%</div>
                         </div>
                     </div>
                     
@@ -568,18 +904,22 @@
                         <div class="stat-card">
                             <h3>TOTAL SHIPPING CHARGES</h3>
                             <div class="value" id="totalShipping">₹0</div>
+                            <div class="percentage" id="totalShippingPercent">0%</div>
                         </div>
                         <div class="stat-card">
                             <h3>TOTAL TCS AMOUNT</h3>
                             <div class="value" id="totalTCS">₹0</div>
+                            <div class="percentage" id="totalTCSPercent">0%</div>
                         </div>
                         <div class="stat-card">
                             <h3>TOTAL TDS AMOUNT</h3>
                             <div class="value" id="totalTDS">₹0</div>
+                            <div class="percentage" id="totalTDSPercent">0%</div>
                         </div>
                         <div class="stat-card">
                             <h3>TOTAL REVENUE</h3>
                             <div class="value" id="totalRevenue">₹0</div>
+                            <div class="percentage" id="totalRevenuePercent">0%</div>
                         </div>
                     </div>
                     
@@ -588,14 +928,13 @@
                         <p>Your Excel data has been successfully processed. The analysis includes calculations of order status, sales amount, return charges, shipping charges, TCS, TDS, ads cost, and net revenue.</p>
                         <p>Key metrics:</p>
                         <ul>
-                            <li>Total Orders: <span id="summaryOrders">0</span> (Delivered + Returned + RTO + Cancelled + Exchange + Shipped + Other)</li>
+                            <li>Total Orders: <span id="summaryOrders">0</span> (Delivered + Returned + RTO + Cancelled + Exchange + Shipped)</li>
                             <li>Delivered Orders: <span id="summaryDelivered">0</span></li>
                             <li>Returned Orders: <span id="summaryReturned">0</span></li>
                             <li>RTO Orders: <span id="summaryRTO">0</span></li>
                             <li>Cancelled Orders: <span id="summaryCancelled">0</span></li>
                             <li>Exchange Orders: <span id="summaryExchange">0</span></li>
                             <li>Shipped Orders: <span id="summaryShipped">0</span></li>
-                            <li>Other Status Orders: <span id="summaryOther">0</span></li>
                             <li>Total Sales Amount: ₹<span id="summarySales">0</span></li>
                             <li>Total Sale Return Amount: ₹<span id="summarySaleReturns">0</span></li>
                             <li>Net Sales Amount: ₹<span id="summaryNetSales">0</span> (Sales - Sale Returns)</li>
@@ -628,11 +967,23 @@
                     <button class="download-btn" id="downloadBtn">
                         <i class="fas fa-download"></i> Download Full Report (PDF)
                     </button>
+
+                    <div class="back-to-top-container">
+                        <button class="back-to-top-btn" id="backToTopBtn">
+                            <i class="fas fa-chevron-up"></i> Back to Top
+                        </button>
+                    </div>
                 </div>
 
                 <!-- New Profit/Loss Section -->
                 <div class="profit-loss-section" id="profitLossSection">
                     <h2>Calculate Total Profit and Loss</h2>
+                    
+                    <div class="back-to-top-container">
+                        <button class="back-to-top-btn" id="profitBackToTopBtn">
+                            <i class="fas fa-chevron-up"></i> Back to Top
+                        </button>
+                    </div>
                     
                     <div class="instructions">
                         <h4>Enter cost prices for delivered SKUs to calculate profit/loss:</h4>
@@ -678,10 +1029,20 @@
         </div>
     </div>
 
-    <!-- Floating Button -->
+    <!-- Floating Buttons -->
     <button class="floating-btn" id="checkPnBtn">
-        <i class="fas fa-calcuator"></i> Check P/L
+        <i class=""></i> Check P/L
     </button>
+
+    <!-- CHANGED: Floating Report Buttons - positioned on LEFT -->
+    <div class="floating-report-buttons" id="floatingReportButtons">
+        <button class="floating-download-btn" id="floatingDownloadBtn">
+            <i class="fas fa-download"></i> Download PDF
+        </button>
+        <button class="floating-back-to-top-btn" id="floatingBackToTopBtn">
+            <i class="fas fa-chevron-up"></i> Back to Top
+        </button>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -697,6 +1058,16 @@
             const skuTable = document.getElementById('skuTable');
             const calculateProfitBtn = document.getElementById('calculateProfitBtn');
             const checkPnBtn = document.getElementById('checkPnBtn');
+            
+            // Back to Top buttons
+            const backToTopBtn = document.getElementById('backToTopBtn');
+            const profitBackToTopBtn = document.getElementById('profitBackToTopBtn');
+            
+            // CHANGED: Floating buttons
+            const floatingReportButtons = document.getElementById('floatingReportButtons');
+            const floatingDownloadBtn = document.getElementById('floatingDownloadBtn');
+            const floatingBackToTopBtn = document.getElementById('floatingBackToTopBtn');
+            
             const revenueForProfitEl = document.getElementById('revenueForProfit');
             const totalCostPriceEl = document.getElementById('totalCostPrice');
             const totalRevenueForProfitEl = document.getElementById('totalRevenueForProfit');
@@ -710,7 +1081,7 @@
             const cancelledOrdersEl = document.getElementById('cancelledOrders');
             const exchangeOrdersEl = document.getElementById('exchangeOrders');
             const shippedOrdersEl = document.getElementById('shippedOrders');
-            const otherOrdersEl = document.getElementById('otherOrders');
+            const successRateEl = document.getElementById('successRate');
             const totalSalesEl = document.getElementById('totalSales');
             const totalSaleReturnsEl = document.getElementById('totalSaleReturns');
             const netSalesEl = document.getElementById('netSales');
@@ -720,6 +1091,23 @@
             const totalTDSEl = document.getElementById('totalTDS');
             const totalRevenueEl = document.getElementById('totalRevenue');
             
+            // Percentage elements
+            const totalOrdersPercentEl = document.getElementById('totalOrdersPercent');
+            const deliveredOrdersPercentEl = document.getElementById('deliveredOrdersPercent');
+            const returnedOrdersPercentEl = document.getElementById('returnedOrdersPercent');
+            const rtoOrdersPercentEl = document.getElementById('rtoOrdersPercent');
+            const cancelledOrdersPercentEl = document.getElementById('cancelledOrdersPercent');
+            const exchangeOrdersPercentEl = document.getElementById('exchangeOrdersPercent');
+            const shippedOrdersPercentEl = document.getElementById('shippedOrdersPercent');
+            const totalSalesPercentEl = document.getElementById('totalSalesPercent');
+            const totalSaleReturnsPercentEl = document.getElementById('totalSaleReturnsPercent');
+            const netSalesPercentEl = document.getElementById('netSalesPercent');
+            const totalAdsCostPercentEl = document.getElementById('totalAdsCostPercent');
+            const totalShippingPercentEl = document.getElementById('totalShippingPercent');
+            const totalTCSPercentEl = document.getElementById('totalTCSPercent');
+            const totalTDSPercentEl = document.getElementById('totalTDSPercent');
+            const totalRevenuePercentEl = document.getElementById('totalRevenuePercent');
+            
             // Summary elements
             const summaryOrdersEl = document.getElementById('summaryOrders');
             const summaryDeliveredEl = document.getElementById('summaryDelivered');
@@ -728,7 +1116,6 @@
             const summaryCancelledEl = document.getElementById('summaryCancelled');
             const summaryExchangeEl = document.getElementById('summaryExchange');
             const summaryShippedEl = document.getElementById('summaryShipped');
-            const summaryOtherEl = document.getElementById('summaryOther');
             const summarySalesEl = document.getElementById('summarySales');
             const summarySaleReturnsEl = document.getElementById('summarySaleReturns');
             const summaryNetSalesEl = document.getElementById('summaryNetSales');
@@ -743,7 +1130,49 @@
             let processedData = null;
             let deliveredSkus = {};
             let totalRevenueValue = 0;
+            let totalOrders = 0;
             
+            // Back to Top functionality
+            backToTopBtn.addEventListener('click', function() {
+                reportSection.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            profitBackToTopBtn.addEventListener('click', function() {
+                profitLossSection.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // CHANGED: Floating buttons functionality
+            floatingDownloadBtn.addEventListener('click', function() {
+                downloadBtn.click(); // Trigger the original download button click
+            });
+
+            floatingBackToTopBtn.addEventListener('click', function() {
+                reportSection.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // CHANGED: Show/hide floating buttons based on scroll
+            reportSection.addEventListener('scroll', function() {
+                const scrollTop = reportSection.scrollTop;
+                const scrollHeight = reportSection.scrollHeight;
+                const clientHeight = reportSection.clientHeight;
+                
+                // Show floating buttons when scrolled down 100px
+                if (scrollTop > 100) {
+                    floatingReportButtons.classList.add('show');
+                } else {
+                    floatingReportButtons.classList.remove('show');
+                }
+            });
+
             // Click on upload area to trigger file input
             uploadArea.addEventListener('click', function() {
                 fileInput.click();
@@ -821,6 +1250,19 @@
                 return totalAdsCost;
             }
             
+            // Function to get status class for coloring
+            function getStatusClass(status) {
+                if (!status) return '';
+                const statusLower = status.toString().toLowerCase();
+                if (statusLower.includes('deliver')) return 'status-delivered';
+                if (statusLower.includes('return')) return 'status-returned';
+                if (statusLower.includes('rto')) return 'status-rto';
+                if (statusLower.includes('cancel')) return 'status-cancelled';
+                if (statusLower.includes('exchange')) return 'status-exchange';
+                if (statusLower.includes('ship')) return 'status-shipped';
+                return '';
+            }
+            
             // Process Excel data function
             function processExcelData() {
                 if (!excelData || excelData.length < 2) {
@@ -840,7 +1282,6 @@
                     let cancelledCount = 0;
                     let exchangeCount = 0;
                     let shippedCount = 0;
-                    let otherCount = 0;
                     let totalSales = 0;
                     let totalSaleReturns = 0;
                     let totalShippingCharges = 0;
@@ -896,7 +1337,6 @@
                             else if (status.includes('cancel')) cancelledCount++;
                             else if (status.includes('exchange')) exchangeCount++;
                             else if (status.includes('ship')) shippedCount++;
-                            else otherCount++;
                         }
                         
                         // Process sale amount
@@ -929,11 +1369,12 @@
                             totalTDS += parseFloat(tdsAmount) || 0;
                         }
                         
-                        // Add row to table
+                        // Add row to table with color coding
                         const tr = document.createElement('tr');
+                        const statusClass = getStatusClass(orderStatus);
                         tr.innerHTML = `
                             <td>${subOrderId || 'N/A'}</td>
-                            <td>${orderStatus || 'N/A'}</td>
+                            <td class="${statusClass}">${orderStatus || 'N/A'}</td>
                             <td>${saleAmount !== undefined && saleAmount !== null && saleAmount !== '' ? '₹' + parseFloat(saleAmount).toFixed(2) : 'N/A'}</td>
                             <td>${saleReturnAmount !== undefined && saleReturnAmount !== null && saleReturnAmount !== '' ? '₹' + parseFloat(saleReturnAmount).toFixed(2) : 'N/A'}</td>
                             <td>${shippingCharge !== undefined && shippingCharge !== null && shippingCharge !== '' ? '₹' + parseFloat(shippingCharge).toFixed(2) : 'N/A'}</td>
@@ -947,17 +1388,17 @@
                         processedData.push({
                             subOrderId: subOrderId || 'N/A',
                             status: orderStatus || 'N/A',
-                            saleAmount: saleAmount !== undefined && saleAmount !== null && saleAmount !== '' ? '₹' + parseFloat(saleAmount).toFixed(2) : 'N/A',
-                            saleReturnAmount: saleReturnAmount !== undefined && saleReturnAmount !== null && saleReturnAmount !== '' ? '₹' + parseFloat(saleReturnAmount).toFixed(2) : 'N/A',
-                            shippingCharge: shippingCharge !== undefined && shippingCharge !== null && shippingCharge !== '' ? '₹' + parseFloat(shippingCharge).toFixed(2) : 'N/A',
-                            returnShippingCharge: returnShippingCharge !== undefined && returnShippingCharge !== null && returnShippingCharge !== '' ? '₹' + parseFloat(returnShippingCharge).toFixed(2) : 'N/A',
-                            tcsAmount: tcsAmount !== undefined && tcsAmount !== null && tcsAmount !== '' ? '₹' + parseFloat(tcsAmount).toFixed(2) : 'N/A',
-                            tdsAmount: tdsAmount !== undefined && tdsAmount !== null && tdsAmount !== '' ? '₹' + parseFloat(tdsAmount).toFixed(2) : 'N/A'
+                            saleAmount: saleAmount !== undefined && saleAmount !== null && saleAmount !== '' ? parseFloat(saleAmount).toFixed(2) : 'N/A',
+                            saleReturnAmount: saleReturnAmount !== undefined && saleReturnAmount !== null && saleReturnAmount !== '' ? parseFloat(saleReturnAmount).toFixed(2) : 'N/A',
+                            shippingCharge: shippingCharge !== undefined && shippingCharge !== null && shippingCharge !== '' ? parseFloat(shippingCharge).toFixed(2) : 'N/A',
+                            returnShippingCharge: returnShippingCharge !== undefined && returnShippingCharge !== null && returnShippingCharge !== '' ? parseFloat(returnShippingCharge).toFixed(2) : 'N/A',
+                            tcsAmount: tcsAmount !== undefined && tcsAmount !== null && tcsAmount !== '' ? parseFloat(tcsAmount).toFixed(2) : 'N/A',
+                            tdsAmount: tdsAmount !== undefined && tdsAmount !== null && tdsAmount !== '' ? parseFloat(tdsAmount).toFixed(2) : 'N/A'
                         });
                     }
                     
-                    // Calculate total orders (Delivered + Returned + RTO + Cancelled + Exchange + Shipped + Other)
-                    const totalOrders = deliveredCount + returnedCount + rtoCount + cancelledCount + exchangeCount + shippedCount + otherCount;
+                    // Calculate total orders (Delivered + Returned + RTO + Cancelled + Exchange + Shipped)
+                    totalOrders = deliveredCount + returnedCount + rtoCount + cancelledCount + exchangeCount + shippedCount;
                     
                     // Calculate net sales (Total Sale Amount - Total Sale Return Amount)
                     const netSales = totalSales + totalSaleReturns;
@@ -967,6 +1408,23 @@
                     
                     // Calculate total revenue (Net Sales - Shipping - TCS - TDS - Ads Cost)
                     totalRevenueValue = netSales + totalShipping + totalTCS + totalTDS + totalAdsCost;
+
+                    // Calculate percentages
+                    const deliveredPercent = totalOrders > 0 ? (deliveredCount / totalOrders * 100).toFixed(1) : 0;
+                    const returnedPercent = totalOrders > 0 ? (returnedCount / totalOrders * 100).toFixed(1) : 0;
+                    const rtoPercent = totalOrders > 0 ? (rtoCount / totalOrders * 100).toFixed(1) : 0;
+                    const cancelledPercent = totalOrders > 0 ? (cancelledCount / totalOrders * 100).toFixed(1) : 0;
+                    const exchangePercent = totalOrders > 0 ? (exchangeCount / totalOrders * 100).toFixed(1) : 0;
+                    const shippedPercent = totalOrders > 0 ? (shippedCount / totalOrders * 100).toFixed(1) : 0;
+                    const successRate = totalOrders > 0 ? (deliveredCount / totalOrders * 100).toFixed(1) : 0;
+                    
+                    const saleReturnsPercent = totalSales > 0 ? (totalSaleReturns / totalSales * 100).toFixed(1) : 0;
+                    const netSalesPercent = totalSales > 0 ? (netSales / totalSales * 100).toFixed(1) : 0;
+                    const adsCostPercent = netSales > 0 ? (totalAdsCost / netSales * 100).toFixed(1) : 0;
+                    const shippingPercent = netSales > 0 ? (totalShipping / netSales * 100).toFixed(1) : 0;
+                    const tcsPercent = netSales > 0 ? (totalTCS / netSales * 100).toFixed(1) : 0;
+                    const tdsPercent = netSales > 0 ? (totalTDS / netSales * 100).toFixed(1) : 0;
+                    const revenuePercent = netSales > 0 ? (totalRevenueValue / netSales * 100).toFixed(1) : 0;
 
                     if (totalRevenueValue >= 0) {
                         totalRevenueEl.className = 'value positive-revenue';
@@ -983,7 +1441,7 @@
                     cancelledOrdersEl.textContent = cancelledCount;
                     exchangeOrdersEl.textContent = exchangeCount;
                     shippedOrdersEl.textContent = shippedCount;
-                    otherOrdersEl.textContent = otherCount;
+                    successRateEl.textContent = successRate + '%';
                     totalSalesEl.textContent = '₹' + totalSales.toFixed(2);
                     totalSaleReturnsEl.textContent = '₹' + totalSaleReturns.toFixed(2);
                     netSalesEl.textContent = '₹' + netSales.toFixed(2);
@@ -993,6 +1451,23 @@
                     totalTDSEl.textContent = '₹' + totalTDS.toFixed(2);
                     totalRevenueEl.textContent = '₹' + totalRevenueValue.toFixed(2);
                     
+                    // Update percentages
+                    totalOrdersPercentEl.textContent = '100%';
+                    deliveredOrdersPercentEl.textContent = deliveredPercent + '% of total';
+                    returnedOrdersPercentEl.textContent = returnedPercent + '% of total';
+                    rtoOrdersPercentEl.textContent = rtoPercent + '% of total';
+                    cancelledOrdersPercentEl.textContent = cancelledPercent + '% of total';
+                    exchangeOrdersPercentEl.textContent = exchangePercent + '% of total';
+                    shippedOrdersPercentEl.textContent = shippedPercent + '% of total';
+                    totalSalesPercentEl.textContent = '100%';
+                    totalSaleReturnsPercentEl.textContent = saleReturnsPercent + '% of sales';
+                    netSalesPercentEl.textContent = netSalesPercent + '% of sales';
+                    totalAdsCostPercentEl.textContent = adsCostPercent + '% of net sales';
+                    totalShippingPercentEl.textContent = shippingPercent + '% of net sales';
+                    totalTCSPercentEl.textContent = tcsPercent + '% of net sales';
+                    totalTDSPercentEl.textContent = tdsPercent + '% of net sales';
+                    totalRevenuePercentEl.textContent = revenuePercent + '% of net sales';
+                    
                     // Update summary
                     summaryOrdersEl.textContent = totalOrders;
                     summaryDeliveredEl.textContent = deliveredCount;
@@ -1001,7 +1476,6 @@
                     summaryCancelledEl.textContent = cancelledCount;
                     summaryExchangeEl.textContent = exchangeCount;
                     summaryShippedEl.textContent = shippedCount;
-                    summaryOtherEl.textContent = otherCount;
                     summarySalesEl.textContent = totalSales.toFixed(2);
                     summarySaleReturnsEl.textContent = totalSaleReturns.toFixed(2);
                     summaryNetSalesEl.textContent = netSales.toFixed(2);
@@ -1020,7 +1494,6 @@
                         cancelledCount,
                         exchangeCount,
                         shippedCount,
-                        otherCount,
                         totalSales,
                         totalSaleReturns,
                         netSales,
@@ -1102,14 +1575,12 @@
                     yPosition += 15;
                     doc.text(`Shipped Orders: ${summary.shippedCount}`, xPosition, yPosition);
                     yPosition += 15;
-                    doc.text(`Other Status Orders: ${summary.otherCount}`, xPosition, yPosition);
-                    yPosition += 15;
                    
                     
                     // Right column
                     xPosition = margin + columnWidth + margin;
                     yPosition = margin + 55;
-                     doc.text(`Total Sales Amount: ₹${summary.totalSales.toFixed(2)}`, xPosition, yPosition);
+                    doc.text(`Total Sales Amount: ₹${summary.totalSales.toFixed(2)}`, xPosition, yPosition);
                     yPosition += 15;
                     doc.text(`Total Sale Return Amount: ₹${summary.totalSaleReturns.toFixed(2)}`, xPosition, yPosition);
                     yPosition += 15;
@@ -1136,22 +1607,26 @@
                     yPosition += 30;
                     
                     // Add detailed data table
-                    doc.setFontSize(0);
+                    doc.setFontSize(12);
                     doc.setTextColor(40, 40, 40);
                     
                     yPosition += 20;
                     
-                    // Prepare table data
-                    const tableData = processedData.map(item => [
-                        item.subOrderId,
-                        item.status,
-                        item.saleAmount,
-                        item.saleReturnAmount,
-                        item.shippingCharge,
-                        item.returnShippingCharge,
-                        item.tcsAmount,
-                        item.tdsAmount
-                    ]);
+                    // Prepare table data - create a fresh array with proper values
+                    const tableData = [];
+                    for (let i = 0; i < processedData.length; i++) {
+                        const item = processedData[i];
+                        tableData.push([
+                            item.subOrderId,
+                            item.status,
+                            item.saleAmount !== 'N/A' ? '₹' + item.saleAmount : 'N/A',
+                            item.saleReturnAmount !== 'N/A' ? '₹' + item.saleReturnAmount : 'N/A',
+                            item.shippingCharge !== 'N/A' ? '₹' + item.shippingCharge : 'N/A',
+                            item.returnShippingCharge !== 'N/A' ? '₹' + item.returnShippingCharge : 'N/A',
+                            item.tcsAmount !== 'N/A' ? '₹' + item.tcsAmount : 'N/A',
+                            item.tdsAmount !== 'N/A' ? '₹' + item.tdsAmount : 'N/A'
+                        ]);
+                    }
                     
                     // Add table with autoTable plugin
                     doc.autoTable({
@@ -1162,10 +1637,10 @@
                         headStyles: {
                             fillColor: [106, 17, 203],
                             textColor: 255,
-                            fontSize: 9
+                            fontSize: 10
                         },
                         bodyStyles: {
-                            fontSize: 6,
+                            fontSize: 8,
                             cellWidth: 'wrap'
                         },
                         alternateRowStyles: {
@@ -1175,14 +1650,14 @@
                         tableWidth: 'auto',
                         styles: { overflow: 'linebreak' },
                         columnStyles: {
-                            0: { cellWidth: 70 },
-                            1: { cellWidth: 60 },
-                            2: { cellWidth: 50 },
-                            3: { cellWidth: 50 },
-                            4: { cellWidth: 50 },
-                            5: { cellWidth: 50 },
-                            6: { cellWidth: 40 },
-                            7: { cellWidth: 40 }
+                            0: { cellWidth: 80 },
+                            1: { cellWidth: 70 },
+                            2: { cellWidth: 60 },
+                            3: { cellWidth: 60 },
+                            4: { cellWidth: 60 },
+                            5: { cellWidth: 60 },
+                            6: { cellWidth: 50 },
+                            7: { cellWidth: 50 }
                         }
                     });
                     
@@ -1313,5 +1788,4 @@
         });
     </script>
 </body>
-
 </html>
