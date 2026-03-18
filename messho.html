@@ -532,7 +532,7 @@
         }
 
         .negative-revenue {
-            color: #dc3545 !important;
+            color: #ffffff !important;
         }
 
         .profit-loss-section {
@@ -951,7 +951,7 @@
                             <tr>
                                 <th>Sub Order ID</th>
                                 <th>Status</th>
-                                <th>Sale Amount</th>
+                                <th>Settlement Amount</th>
                                 <th>Sale Return Amount</th>
                                 <th>Shipping Charges</th>
                                 <th>Return Shipping</th>
@@ -1309,12 +1309,12 @@
                         // Get values from specific columns
                         const subOrderId = row[0]; // Column A
                         const skuId = row[4]; // Column E
-                        const orderStatus = row[5]; // Column F
+                        const orderStatus = row[7]; // Column F
                         const saleAmount = row[13]; // Column N
-                        const saleReturnAmount = row[14]; // Column O
+                        const saleReturnAmount = row[16]; // Column O
                         const returnShippingCharge = row[25]; // Column Z
                         const shippingCharge = row[27]; // Column AB
-                        const tcsAmount = row[32]; // Column AG
+                        const tcsAmount = row[36]; // Column AG
                         const tdsAmount = row[34]; // Column AI
                         
                         // Process order status
